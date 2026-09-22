@@ -1,4 +1,5 @@
 import { calculateCampaign } from './calculator.js';
+import { campaignTimeline, renderChart } from './chart.js';
 
 const form = document.querySelector('#campaign-form');
 const fields = {
@@ -19,6 +20,9 @@ const messages = {
   tooLarge: 'This target is too large. Lower the revenue or increase the response rates.',
 };
 let announcementTimer;
+const chartContainer = document.querySelector('#chart-container');
+const chartTable = document.querySelector('#chart-table-body');
+let currentPeriods = [];
 
 function update() {
   const input = Object.fromEntries(Object.entries(fields).map(([key, field]) => [key, field.value]));
@@ -50,6 +54,9 @@ function update() {
     document.querySelector(`#${key}-bar`).style.width = `${result.ok ? result.shares[key] : 0}%`;
   }
   document.querySelector('#campaign-goal').textContent = result.ok ? `${new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(result.revenue)} goal` : '—';
+  currentPeriods = result.ok ? campaignTimeline(result.start, result.end, result.counts) : [];
+  document.querySelector('#campaign-duration').textContent = result.ok ? `${currentPeriods.length} ${currentPeriods.length === 1 ? 'month' : 'months'}` : '—';
+  renderChart(chartContainer, chartTable, currentPeriods);
   clearTimeout(announcementTimer);
   announcementTimer = setTimeout(() => {
     document.querySelector('#results-announcement').textContent = result.ok ? `${result.counts.prospects} prospects, ${result.counts.leads} leads, ${result.counts.customers} customers.` : errorSummary.textContent;
@@ -59,4 +66,11 @@ function update() {
 form.addEventListener('submit', event => event.preventDefault());
 // Sliders are associated with the form but live outside it in the layout.
 Object.values(fields).forEach(field => field.addEventListener('input', update));
+let previousWidth = 0;
+new ResizeObserver(([entry]) => {
+  if (Math.abs(entry.contentRect.width - previousWidth) > 1) {
+    previousWidth = entry.contentRect.width;
+    renderChart(chartContainer, chartTable, currentPeriods);
+  }
+}).observe(chartContainer);
 update();
