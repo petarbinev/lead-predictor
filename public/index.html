@@ -14,7 +14,7 @@
   <a class="skip-link" href="#results" data-i18n="skip">Skip to results</a>
   <div class="app-shell">
     <header class="site-header">
-      <a class="brand" href="./" aria-label="LeadPredictor home"><img src="favicon.svg" width="38" height="38" alt=""><span>Lead<span class="brand-light">Predictor</span><span class="brand-dot">.</span></span></a>
+      <a class="brand" href="./" aria-label="LeadPredictor home" data-i18n-aria="home"><img src="favicon.svg" width="38" height="38" alt=""><span>Lead<span class="brand-light">Predictor</span><span class="brand-dot">.</span></span></a>
       <div class="header-note"><span class="status-dot"></span><span data-i18n="headerNote">A little clarity. A better campaign.</span></div>
     </header>
 
@@ -39,13 +39,13 @@
           <div class="projection-body">
             <div class="chart-column">
               <div class="chart-meta"><span id="campaign-duration">6 months</span><span id="campaign-goal">$10,000.00 goal</span></div>
-              <div class="chart-legend" aria-label="Chart legend"><span><i class="legend-dot prospects-dot"></i><span data-i18n="prospects">Prospects</span></span><span><i class="legend-dot leads-dot"></i><span data-i18n="leads">Leads</span></span><span><i class="legend-dot customers-dot"></i><span data-i18n="customers">Customers</span></span></div>
+              <div class="chart-legend" aria-label="Chart legend" data-i18n-aria="chartLegend"><span><i class="legend-dot prospects-dot"></i><span data-i18n="prospects">Prospects</span></span><span><i class="legend-dot leads-dot"></i><span data-i18n="leads">Leads</span></span><span><i class="legend-dot customers-dot"></i><span data-i18n="customers">Customers</span></span></div>
               <div id="chart-container" class="chart-container"><p class="empty-chart" data-i18n="chartLoading">Your campaign timeline will appear here.</p></div>
               <p class="chart-note" data-i18n="chartNote">Cumulative targets, assuming steady progress.</p>
               <details class="chart-data"><summary data-i18n="viewData">View monthly figures</summary><div class="table-scroll"><table><caption class="sr-only" data-i18n="tableCaption">Cumulative campaign targets</caption><thead><tr><th scope="col" data-i18n="period">Period</th><th scope="col" data-i18n="prospects">Prospects</th><th scope="col" data-i18n="leads">Leads</th><th scope="col" data-i18n="customers">Customers</th></tr></thead><tbody id="chart-table-body"></tbody></table></div></details>
             </div>
 
-            <div class="summary-cards" aria-label="Campaign targets">
+            <div class="summary-cards" aria-label="Campaign targets" data-i18n-aria="campaignTargets">
               <article class="metric-card prospects-card"><div class="metric-top"><div class="metric-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v13H3zM8 7V4h8v3M3 11h18"/></svg><h3 data-i18n="prospects">Prospects</h3></div><span class="metric-percent" id="prospects-percent">100%</span></div><p class="metric-value" id="prospects-count">125</p><div class="metric-track" aria-hidden="true"><span id="prospects-bar" style="width:100%"></span></div><p class="metric-description" data-i18n="prospectsDescription">People to reach</p></article>
               <article class="metric-card leads-card"><div class="metric-top"><div class="metric-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3z"/></svg><h3 data-i18n="leads">Leads</h3></div><span class="metric-percent" id="leads-percent">20%</span></div><p class="metric-value" id="leads-count">25</p><div class="metric-track" aria-hidden="true"><span id="leads-bar" style="width:20%"></span></div><p class="metric-description" data-i18n="leadsDescription">Interested prospects</p></article>
               <article class="metric-card customers-card"><div class="metric-top"><div class="metric-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v7a4 4 0 0 1-8 0zM8 5H4v3a4 4 0 0 0 4 4m8-7h4v3a4 4 0 0 1-4 4m-4 2v6m-4 0h8"/></svg><h3 data-i18n="customers">Customers</h3></div><span class="metric-percent" id="customers-percent">8%</span></div><p class="metric-value" id="customers-count">10</p><div class="metric-track" aria-hidden="true"><span id="customers-bar" style="width:8%"></span></div><p class="metric-description" data-i18n="customersDescription">Orders to reach your goal</p></article>
