@@ -1,6 +1,8 @@
 # LeadPredictor implementation plan
 
-Status: implementation started on 22 September 2026. See README.md for the final verification results and submission links.
+Status: implementation completed on 22 September 2026. See README.md for verification results and submission links.
+
+Implementation notes: campaigns have a 10-year limit to bound monthly chart size. The site is published through the connected Netlify deployment tool; GitHub continuous deployment and automatic PR previews from the original plan are not configured. All development stages still use GitHub pull requests.
 
 The user requested this plan and then authorized implementation. The attached Bulgarian assignment supplies acceptance criteria and the second screenshot supplies the visual reference.
 
