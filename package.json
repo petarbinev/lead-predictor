@@ -1,0 +1,12 @@
+{
+  "name": "lead-predictor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A revenue-to-outreach calculator built with HTML, CSS and JavaScript.",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=20" }
+}
