@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141d2b">
+  <meta name="description" content="Turn your revenue goal into a clear outreach plan. Calculate the prospects, leads, and customers your campaign needs.">
+  <title>LeadPredictor — Plan your next campaign</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#results" data-i18n="skip">Skip to results</a>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="LeadPredictor home"><img src="favicon.svg" width="38" height="38" alt=""><span>Lead<span class="brand-light">Predictor</span><span class="brand-dot">.</span></span></a>
+      <div class="header-note"><span class="status-dot"></span><span data-i18n="headerNote">A little clarity. A better campaign.</span></div>
+    </header>
+
+    <main class="workspace">
+      <aside class="panel setup-panel" aria-labelledby="setup-title">
+        <div class="panel-eyebrow"><span class="section-number">01</span><h1 id="setup-title" data-i18n="setup">Campaign setup</h1></div>
+        <form id="campaign-form" novalidate>
+          <div class="field"><label for="language" data-i18n="language">Language</label><div class="select-wrap"><select id="language" name="language"><option value="en">English</option><option value="bg">Български</option></select></div></div>
+          <div class="field"><label for="currency" data-i18n="currency">Currency</label><div class="select-wrap"><select id="currency" name="currency" aria-describedby="currency-note"><option value="USD" data-i18n="usd">$ US Dollar</option><option value="EUR" data-i18n="eur">€ Euro</option></select></div><p class="field-hint" id="currency-note" data-i18n="currencyNote">Changes the unit, not the entered amounts.</p></div>
+          <div class="field"><label for="start-date" data-i18n="start">Campaign start</label><input id="start-date" name="startDate" type="date" value="2026-05-08" required aria-describedby="start-date-error"><p class="field-error" id="start-date-error" hidden></p></div>
+          <div class="field"><label for="end-date" data-i18n="end">Campaign end</label><input id="end-date" name="endDate" type="date" value="2026-11-04" required aria-describedby="end-date-error"><p class="field-error" id="end-date-error" hidden></p></div>
+          <div class="form-divider"></div>
+          <div class="field"><label for="revenue" data-i18n="revenue">Total revenue goal</label><div class="money-input"><span class="currency-symbol" aria-hidden="true">$</span><input id="revenue" name="revenue" type="number" inputmode="decimal" min="0" step="0.01" value="10000" required aria-describedby="revenue-error"></div><p class="field-error" id="revenue-error" hidden></p></div>
+          <div class="field"><label for="order-value" data-i18n="order">Average order value</label><div class="money-input"><span class="currency-symbol" aria-hidden="true">$</span><input id="order-value" name="orderValue" type="number" inputmode="decimal" min="0.01" step="0.01" value="1000" required aria-describedby="order-value-error"></div><p class="field-error" id="order-value-error" hidden></p></div>
+        </form>
+        <div class="setup-foot"><span class="small-spark" aria-hidden="true">✳</span><p data-i18n="setupFoot">Start with your goal.<br>We’ll work backwards.</p></div>
+      </aside>
+
+      <div class="results-column" id="results" tabindex="-1">
+        <section class="panel projection-panel" aria-labelledby="projection-title">
+          <div class="projection-heading"><div><p class="eyebrow" data-i18n="overview">THE BIG PICTURE</p><h2 id="projection-title" data-i18n="projection">Your path to revenue</h2></div><span class="live-badge"><span class="status-dot"></span><span data-i18n="live">Live estimate</span></span></div>
+          <div class="projection-body">
+            <div class="chart-column">
+              <div class="chart-meta"><span id="campaign-duration">6 months</span><span id="campaign-goal">$10,000.00 goal</span></div>
+              <div class="chart-legend" aria-label="Chart legend"><span><i class="legend-dot prospects-dot"></i><span data-i18n="prospects">Prospects</span></span><span><i class="legend-dot leads-dot"></i><span data-i18n="leads">Leads</span></span><span><i class="legend-dot customers-dot"></i><span data-i18n="customers">Customers</span></span></div>
+              <div id="chart-container" class="chart-container"><p class="empty-chart" data-i18n="chartLoading">Your campaign timeline will appear here.</p></div>
+              <p class="chart-note" data-i18n="chartNote">Cumulative targets, assuming steady progress.</p>
+              <details class="chart-data"><summary data-i18n="viewData">View monthly figures</summary><div class="table-scroll"><table><caption class="sr-only" data-i18n="tableCaption">Cumulative campaign targets</caption><thead><tr><th scope="col" data-i18n="period">Period</th><th scope="col" data-i18n="prospects">Prospects</th><th scope="col" data-i18n="leads">Leads</th><th scope="col" data-i18n="customers">Customers</th></tr></thead><tbody id="chart-table-body"></tbody></table></div></details>
+            </div>
+
+            <div class="summary-cards" aria-label="Campaign targets">
+              <article class="metric-card prospects-card"><div class="metric-top"><div class="metric-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v13H3zM8 7V4h8v3M3 11h18"/></svg><h3 data-i18n="prospects">Prospects</h3></div><span class="metric-percent" id="prospects-percent">100%</span></div><p class="metric-value" id="prospects-count">125</p><div class="metric-track" aria-hidden="true"><span id="prospects-bar" style="width:100%"></span></div><p class="metric-description" data-i18n="prospectsDescription">People to reach</p></article>
+              <article class="metric-card leads-card"><div class="metric-top"><div class="metric-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3z"/></svg><h3 data-i18n="leads">Leads</h3></div><span class="metric-percent" id="leads-percent">20%</span></div><p class="metric-value" id="leads-count">25</p><div class="metric-track" aria-hidden="true"><span id="leads-bar" style="width:20%"></span></div><p class="metric-description" data-i18n="leadsDescription">Interested prospects</p></article>
+              <article class="metric-card customers-card"><div class="metric-top"><div class="metric-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v7a4 4 0 0 1-8 0zM8 5H4v3a4 4 0 0 0 4 4m8-7h4v3a4 4 0 0 1-4 4m-4 2v6m-4 0h8"/></svg><h3 data-i18n="customers">Customers</h3></div><span class="metric-percent" id="customers-percent">8%</span></div><p class="metric-value" id="customers-count">10</p><div class="metric-track" aria-hidden="true"><span id="customers-bar" style="width:8%"></span></div><p class="metric-description" data-i18n="customersDescription">Orders to reach your goal</p></article>
+              <p class="share-note" data-i18n="shareNote">Percentages are a share of all prospects.</p>
+            </div>
+          </div>
+          <p id="results-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+          <p id="calculation-error" class="calculation-error" role="alert" hidden></p>
+        </section>
+
+        <section class="panel rates-panel" aria-labelledby="rates-title">
+          <div class="rates-heading"><div class="panel-eyebrow"><span class="section-number">02</span><h2 id="rates-title" data-i18n="rates">Fine-tune your funnel</h2></div><p data-i18n="ratesHint">Small changes. A different outlook.</p></div>
+          <div class="rate-control"><div class="rate-label"><label for="lead-rate" data-i18n="leadRate">Lead response rate</label><output for="lead-rate" id="lead-rate-output">40<span>%</span></output></div><input id="lead-rate" name="leadRate" form="campaign-form" type="range" min="1" max="100" step="1" value="40" aria-describedby="lead-rate-description" style="--fill:39.3939%"><div class="range-caption"><span id="lead-rate-description" data-i18n="leadRateDescription">Leads that become customers</span><span>1–100%</span></div></div>
+          <div class="rate-control"><div class="rate-label"><label for="prospect-rate" data-i18n="prospectRate">Prospect response rate</label><output for="prospect-rate" id="prospect-rate-output">20<span>%</span></output></div><input id="prospect-rate" name="prospectRate" form="campaign-form" type="range" min="1" max="100" step="1" value="20" aria-describedby="prospect-rate-description" style="--fill:19.1919%"><div class="range-caption"><span id="prospect-rate-description" data-i18n="prospectRateDescription">Prospects that become leads</span><span>1–100%</span></div></div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer"><span data-i18n="footer">A clear target is a good place to start.</span><span>LeadPredictor <span class="footer-separator">/</span> <span data-i18n="footerType">Campaign planning</span></span></footer>
+  </div>
+  <noscript><p class="noscript-note">Please enable JavaScript to use the calculator. / Моля, включете JavaScript, за да използвате калкулатора.</p></noscript>
+</body>
+</html>
