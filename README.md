@@ -76,7 +76,7 @@ Each development stage entered `main` through a pull request using a merge commi
 | `feature/preferences` | [#4](https://github.com/petarbinev/lead-predictor/pull/4) | English/Bulgarian and USD/EUR |
 | `experiment/chart-animation` | [#5](https://github.com/petarbinev/lead-predictor/pull/5) | Isolated chart animation experiment |
 | `revert/chart-animation` | [#6](https://github.com/petarbinev/lead-predictor/pull/6) | Explicit reversal using `git revert` |
-| `chore/release-documentation` | Release PR | Small-phone fixes, readable formatting, documentation, final checks |
+| `chore/release-documentation` | [#7](https://github.com/petarbinev/lead-predictor/pull/7) | Small-phone fixes, readable formatting, documentation, final checks |
 
 The [animation commit](https://github.com/petarbinev/lead-predictor/commit/c36eca8) adds a 350ms entrance effect. During evaluation, it restarted on every slider adjustment, delaying the stable view of the new targets. The [revert commit](https://github.com/petarbinev/lead-predictor/commit/2164fe4) restores immediate updates. Both remain in history; no history rewrite was used.
 
@@ -86,9 +86,13 @@ The 16 automated tests cover the reference example, upward rounding, decimal mon
 
 Browser checks cover live recalculation, invalid-field clearing, currency changes, Bulgarian translations, Enter/Escape chart tooltips, slider keyboard endpoints, invalid dates, and layouts at 320px, 390px, 768px, and desktop width. The 320px Bulgarian check identified card-label overlap, corrected by placing the percentage below the label. These are browser checks; no physical-device or full assistive-technology audit is claimed.
 
+Production verification on 22 September 2026 confirmed public HTTPS access without a login, the default 125/25/10 result, the 140/28/11 rounding case, Bulgarian labels, and EUR formatting. All four JavaScript modules and the stylesheet fetched from the live site matched the tested local files byte for byte. No application console errors were observed during the production smoke check.
+
 ## Deployment
 
 Netlify serves **`public/`** with **no build command**. The project uses the owner's existing Netlify account and the connected deployment tool. This is a manual publication of the repository's code; GitHub continuous deployment and automatic PR previews are not configured. Future edits require a new deployment.
+
+Deployment: [production build 6ab217ee66046649d3434bc2](https://app.netlify.com/sites/aa4d791e-41c6-4874-a458-1b3302627c24/deploys/6ab217ee66046649d3434bc2).
 
 To enable continuous deployment later, link this existing Netlify project to `petarbinev/lead-predictor`, choose `main`, set the publish directory to `public`, and leave the build command empty. The same settings are already recorded in `netlify.toml`.
 
